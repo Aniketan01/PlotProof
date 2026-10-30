@@ -25,3 +25,4 @@ To keep the application looking like an authentic, professional Civic/Government
   `<div className="max-w-7xl mx-auto px-4 py-8">`
 - Cards:
   `<div className="bg-white border border-slate-200 rounded-lg p-6 shadow-sm">`
+

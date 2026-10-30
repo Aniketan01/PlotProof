@@ -13,12 +13,20 @@ import {
   AlertTriangle,
   UserCheck,
   Hash,
-  Scale
+  Scale,
+  LogOut,
+  User,
+  ArrowLeft
 } from 'lucide-react';
 import { INITIAL_LANDS, INITIAL_TRANSFERS } from './data/mockLandData';
+import Navbar from './components/Navbar';
+import LandingPage from './components/LandingPage';
+import AuthPage from './components/AuthPage';
 import './App.css';
 
 export default function App() {
+  const [currentUser, setCurrentUser] = useState(null);
+  const [currentView, setCurrentView] = useState('home'); // 'home' | 'login' | 'signup' | 'portal'
   const [activeTab, setActiveTab] = useState('parcels'); // 'parcels' | 'transfer' | 'ledger' | 'locks'
   const [lands, setLands] = useState(INITIAL_LANDS);
   const [transfers, setTransfers] = useState(INITIAL_TRANSFERS);
@@ -38,6 +46,11 @@ export default function App() {
 
   // Quick initiate from land card
   const handleInitiateTransfer = (land) => {
+    if (!currentUser) {
+      alert("Please sign in or create an account to execute statutory title conveyance for this parcel.");
+      setCurrentView('login');
+      return;
+    }
     setSelectedLandId(land.id);
     setAgreedPrice(land.valuation.replace(/[^0-9]/g, ''));
     setTaxCleared(land.taxClearance);
@@ -134,49 +147,98 @@ export default function App() {
   });
 
   return (
-    <div className="app-container">
-      {/* Top Navbar */}
-      <header className="navbar">
-        <div className="brand">
-          <div className="brand-icon">
-            <Building2 size={24} />
-          </div>
-          <div>
-            <h1 className="brand-title">LandChain Portal</h1>
-            <p className="brand-subtitle">Digital Land Ownership & Title Transfer Registry</p>
-          </div>
-        </div>
+    <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col justify-between">
+      {/* Top Navbar across all views */}
+      <Navbar 
+        currentView={currentView} 
+        setCurrentView={setCurrentView} 
+        currentUser={currentUser} 
+        onLogout={() => {
+          setCurrentUser(null);
+          setCurrentView('home');
+        }} 
+      />
 
-        <nav className="nav-tabs">
-          <button 
-            className={`tab-btn ${activeTab === 'parcels' ? 'active' : ''}`}
-            onClick={() => setActiveTab('parcels')}
-          >
-            <MapPin size={17} /> Land Parcels ({lands.length})
-          </button>
-          <button 
-            className={`tab-btn ${activeTab === 'transfer' ? 'active' : ''}`}
-            onClick={() => setActiveTab('transfer')}
-          >
-            <ArrowRightLeft size={17} /> Initiate Transfer
-          </button>
-          <button 
-            className={`tab-btn ${activeTab === 'ledger' ? 'active' : ''}`}
-            onClick={() => setActiveTab('ledger')}
-          >
-            <History size={17} /> Audit Ledger ({transfers.length})
-          </button>
-          <button 
-            className={`tab-btn ${activeTab === 'locks' ? 'active' : ''}`}
-            onClick={() => setActiveTab('locks')}
-          >
-            <Lock size={17} /> AI File Locks
-          </button>
-        </nav>
-      </header>
+      {/* VIEW 1: LANDING PAGE */}
+      {currentView === 'home' && (
+        <LandingPage setCurrentView={setCurrentView} />
+      )}
 
-      {/* Main Content Area */}
-      <main className="main-content">
+      {/* VIEW 2: LOGIN PAGE (PC DESKTOP SPHERICAL) */}
+      {currentView === 'login' && (
+        <AuthPage 
+          initialMode="login" 
+          setCurrentView={setCurrentView}
+          onLoginSuccess={(user) => {
+            setCurrentUser(user);
+            setCurrentView('portal');
+            if (user.role === 'buyer') {
+              setBuyerName(user.name);
+              setBuyerGovId(user.nationalId);
+            }
+          }} 
+        />
+      )}
+
+      {/* VIEW 3: SIGNUP PAGE (PC DESKTOP SPHERICAL) */}
+      {currentView === 'signup' && (
+        <AuthPage 
+          initialMode="signup" 
+          setCurrentView={setCurrentView}
+          onLoginSuccess={(user) => {
+            setCurrentUser(user);
+            setCurrentView('portal');
+            if (user.role === 'buyer') {
+              setBuyerName(user.name);
+              setBuyerGovId(user.nationalId);
+            }
+          }} 
+        />
+      )}
+
+      {/* VIEW 4: PORTAL DASHBOARD */}
+      {currentView === 'portal' && (
+        <div className="app-container">
+          {/* Sub Navigation Bar for Portal Tabs */}
+          <div className="bg-slate-900 border-b border-slate-800 px-6 py-3 text-white flex flex-wrap items-center justify-between gap-4">
+            <div className="flex items-center gap-3">
+              <span className="text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-950 px-2.5 py-1 rounded border border-emerald-800">
+                Active Desk: {currentUser ? currentUser.role : 'Guest'}
+              </span>
+              <span className="text-xs text-slate-300">
+                {currentUser?.department || 'Department of Land Revenue'}
+              </span>
+            </div>
+
+            <nav className="flex items-center gap-2">
+              <button 
+                className={`tab-btn ${activeTab === 'parcels' ? 'active' : ''}`}
+                onClick={() => setActiveTab('parcels')}
+              >
+                <MapPin size={16} /> Land Parcels ({lands.length})
+              </button>
+              <button 
+                className={`tab-btn ${activeTab === 'transfer' ? 'active' : ''}`}
+                onClick={() => setActiveTab('transfer')}
+              >
+                <ArrowRightLeft size={16} /> Initiate Transfer
+              </button>
+              <button 
+                className={`tab-btn ${activeTab === 'ledger' ? 'active' : ''}`}
+                onClick={() => setActiveTab('ledger')}
+              >
+                <History size={16} /> Audit Ledger ({transfers.length})
+              </button>
+              <button 
+                className={`tab-btn ${activeTab === 'locks' ? 'active' : ''}`}
+                onClick={() => setActiveTab('locks')}
+              >
+                <Lock size={16} /> AI File Locks
+              </button>
+            </nav>
+          </div>
+
+          <main className="main-content">
         {/* TAB 1: PARCELS LIST */}
         {activeTab === 'parcels' && (
           <section className="section">
@@ -575,5 +637,7 @@ export default function App() {
         )}
       </main>
     </div>
+    )}
+  </div>
   );
 }

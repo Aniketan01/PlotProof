@@ -1,14 +1,16 @@
 @import "tailwindcss";
+@source "./**/*.{js,jsx,ts,tsx}";
+@source "../index.html";
 
 @layer base {
   :root {
-    --bg-page: #f8fafc; /* Slate-50: Crisp, clean, authentic civic background */
+    --bg-page: #f8fafc;
     --surface-card: #ffffff;
     --border-subtle: #e2e8f0;
     --text-primary: #0f172a;
     --text-muted: #64748b;
-    --brand-gov: #064e3b; /* Deep civic emerald/forest - authentic official look */
-    --brand-accent: #0284c7; /* Trust blue */
+    --brand-gov: #064e3b;
+    --brand-accent: #0284c7;
   }
 
   body {
@@ -20,7 +22,6 @@
   }
 }
 
-/* Common shared civic-tech design utility classes */
 .gov-bg {
   background-color: #f8fafc;
 }
@@ -35,22 +36,4 @@
 .gov-header {
   background-color: #064e3b;
   color: #ffffff;
-}
-
-.badge-verified {
-  background-color: #ecfdf5;
-  color: #065f46;
-  border: 1px solid #a7f3d0;
-}
-
-.badge-pending {
-  background-color: #fffbeb;
-  color: #92400e;
-  border: 1px solid #fde68a;
-}
-
-.badge-rejected {
-  background-color: #fef2f2;
-  color: #991b1b;
-  border: 1px solid #fecaca;
 }

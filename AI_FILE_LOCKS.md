@@ -23,7 +23,10 @@
 | `GIT_COLLABORATION_GUIDE.md` | Team Git sync instructions | Partner 1 AI | **LOCKED** |
 | `THEME_GUIDELINES.md` | Common Tailwind styling & UI standards | Partner 1 AI | **LOCKED** |
 | `vite.config.js` | Vite build & Tailwind configuration | Partner 1 AI | **LOCKED** |
-| `src/App.jsx` | Core Land Transfer portal interface & state | Partner 1 AI | **LOCKED** |
+| `src/components/Navbar.jsx` | Top desktop navbar & navigation | Partner 1 AI | **LOCKED** |
+| `src/components/LandingPage.jsx` | Full PC desktop civic landing page | Partner 1 AI | **LOCKED** |
+| `src/components/AuthPage.jsx` | Spacious dual-column PC Login & Signup | Partner 1 AI | **LOCKED** |
+| `src/App.jsx` | Core view orchestration & state | Partner 1 AI | **LOCKED** |
 | `src/App.css` | Styling for core portal | Partner 1 AI | **LOCKED** |
 | `src/index.css` | Global styling & design system variables | Partner 1 AI | **LOCKED** |
 | `src/data/mockLandData.js` | Land ownership and transfer records state | Partner 1 AI | **LOCKED** |
@@ -34,7 +37,7 @@
 ## 🟢 Open / Collaboration Zones (Free for Friend & Friend's AI)
 
 Friend's AI should create and work inside dedicated folders such as:
-- `src/features/` (e.g. `src/features/verification/`, `src/features/payment/`, `src/features/documents/`)
+- `src/features/` (e.g. `src/features/verification/`, `src/features/payment/`, `src/features/documents/`, `src/features/ocr/`)
 - `src/components/friend/`
 - Any new component, hook, or service file created by Partner 2.
 
