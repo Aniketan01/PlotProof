@@ -47,13 +47,18 @@ export default function Navbar({ currentView, setCurrentView, currentUser, onLog
             Land Parcels
           </button>
 
-          <a 
-            href="#statutory-docs" 
-            onClick={() => { if (currentView !== 'home') setCurrentView('home'); }}
-            className="hover:text-emerald-800 transition cursor-pointer"
+          <button 
+            onClick={() => {
+              setCurrentView('home');
+              setTimeout(() => {
+                const el = document.getElementById('statutory-docs');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+              }, 100);
+            }}
+            className="hover:text-emerald-800 transition cursor-pointer text-slate-600 hover:text-slate-900"
           >
             Required Documents
-          </a>
+          </button>
         </nav>
 
         {/* Right Auth Buttons */}

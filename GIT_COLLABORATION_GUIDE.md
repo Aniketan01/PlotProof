@@ -1,25 +1,24 @@
 # Git Collaboration Guide (You + Friend)
 
-## Repository URL
-`https://github.com/Aniketan01/Land-Ownership-Transfer.git`
-
-## Step 1: Push Project to GitHub
-Remote already configured to `origin`.
-Run in terminal:
+## Step 1: Push Project to GitHub (Do this once)
+1. Go to [github.com/new](https://github.com/new)
+2. Create repository name: `land-ownership-transfer` (set to Public or Private, DO NOT initialize with README).
+3. In your VS Code terminal, run:
 ```bash
+git remote add origin https://github.com/<YOUR-USERNAME>/land-ownership-transfer.git
 git push -u origin main
 ```
 
 ## Step 2: Add Friend as Collaborator
-1. Open [https://github.com/Aniketan01/Land-Ownership-Transfer/settings/access](https://github.com/Aniketan01/Land-Ownership-Transfer/settings/access)
-2. Click **Add people**.
-3. Type friend's GitHub username/email and invite.
+1. On GitHub repo page: click **Settings** → **Collaborators** → **Add people**.
+2. Type friend's GitHub username/email and send invite.
+3. Friend accepts invitation link received via email or at [github.com/notifications](https://github.com/notifications).
 
 ## Step 3: Friend Clones Repo
-On friend machine:
+On friend's computer:
 ```bash
-git clone https://github.com/Aniketan01/Land-Ownership-Transfer.git
-cd Land-Ownership-Transfer
+git clone https://github.com/<YOUR-USERNAME>/land-ownership-transfer.git
+cd land-ownership-transfer
 npm install
 npm run dev
 ```
@@ -47,4 +46,3 @@ Then create Pull Request on GitHub and merge into `main`.
 git checkout main
 git pull origin main
 ```
-

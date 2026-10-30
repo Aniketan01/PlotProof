@@ -199,41 +199,62 @@ export default function App() {
       {/* VIEW 4: PORTAL DASHBOARD */}
       {currentView === 'portal' && (
         <div className="app-container">
-          {/* Sub Navigation Bar for Portal Tabs */}
-          <div className="bg-slate-900 border-b border-slate-800 px-6 py-3 text-white flex flex-wrap items-center justify-between gap-4">
+          {/* Clean Civic Sub Navigation Bar for Portal Tabs */}
+          <div className="bg-white border-b border-slate-200 px-6 py-4 flex flex-wrap items-center justify-between gap-4">
             <div className="flex items-center gap-3">
-              <span className="text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-950 px-2.5 py-1 rounded border border-emerald-800">
-                Active Desk: {currentUser ? currentUser.role : 'Guest'}
+              <span className={`text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full border ${
+                currentUser?.role === 'officer' 
+                  ? 'bg-amber-50 text-amber-900 border-amber-200' 
+                  : currentUser?.role === 'seller'
+                  ? 'bg-teal-50 text-teal-900 border-teal-200'
+                  : currentUser?.role === 'buyer'
+                  ? 'bg-emerald-50 text-emerald-900 border-emerald-200'
+                  : 'bg-slate-100 text-slate-700 border-slate-200'
+              }`}>
+                {currentUser ? `${currentUser.role.toUpperCase()} WORKSPACE` : 'PUBLIC DIRECTORY'}
               </span>
-              <span className="text-xs text-slate-300">
-                {currentUser?.department || 'Department of Land Revenue'}
+              <span className="text-xs text-slate-500 hidden sm:inline">
+                {currentUser ? currentUser.department : 'Official Title Deed & Cadastral Registry'}
               </span>
             </div>
 
             <nav className="flex items-center gap-2">
               <button 
-                className={`tab-btn ${activeTab === 'parcels' ? 'active' : ''}`}
+                className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-bold transition cursor-pointer ${
+                  activeTab === 'parcels' 
+                    ? 'bg-emerald-800 text-white shadow-xs' 
+                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                }`}
                 onClick={() => setActiveTab('parcels')}
               >
-                <MapPin size={16} /> Land Parcels ({lands.length})
+                <MapPin size={15} /> Land Parcels ({lands.length})
               </button>
               <button 
-                className={`tab-btn ${activeTab === 'transfer' ? 'active' : ''}`}
-                onClick={() => setActiveTab('transfer')}
+                className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-bold transition cursor-pointer ${
+                  activeTab === 'transfer' 
+                    ? 'bg-emerald-800 text-white shadow-xs' 
+                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                }`}
+                onClick={() => {
+                  if (!currentUser) {
+                    alert("Please sign in or create an account to initiate title conveyance.");
+                    setCurrentView('login');
+                  } else {
+                    setActiveTab('transfer');
+                  }
+                }}
               >
-                <ArrowRightLeft size={16} /> Initiate Transfer
+                <ArrowRightLeft size={15} /> Initiate Transfer
               </button>
               <button 
-                className={`tab-btn ${activeTab === 'ledger' ? 'active' : ''}`}
+                className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-bold transition cursor-pointer ${
+                  activeTab === 'ledger' 
+                    ? 'bg-emerald-800 text-white shadow-xs' 
+                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                }`}
                 onClick={() => setActiveTab('ledger')}
               >
-                <History size={16} /> Audit Ledger ({transfers.length})
-              </button>
-              <button 
-                className={`tab-btn ${activeTab === 'locks' ? 'active' : ''}`}
-                onClick={() => setActiveTab('locks')}
-              >
-                <Lock size={16} /> AI File Locks
+                <History size={15} /> Audit Ledger ({transfers.length})
               </button>
             </nav>
           </div>
@@ -549,87 +570,6 @@ export default function App() {
                       </td>
                     </tr>
                   ))}
-                </tbody>
-              </table>
-            </div>
-          </section>
-        )}
-
-        {/* TAB 4: COLLABORATION & AI FILE LOCKS */}
-        {activeTab === 'locks' && (
-          <section className="section">
-            <div className="section-header">
-              <div>
-                <h2>AI File Ownership & Coordination Registry</h2>
-                <p>Live registry preventing partner AI agents from overwriting locked files.</p>
-              </div>
-            </div>
-
-            <div className="locks-banner">
-              <ShieldCheck size={32} className="shield-icon" />
-              <div>
-                <h3>Strict Mutual AI Boundary Enforced</h3>
-                <p>
-                  Files listed below are locked for Partner 1's AI. Partner 2's AI agent must not edit or overwrite them.
-                  Partner 2 should place features in separate modules (e.g. <code>src/features/</code>).
-                </p>
-              </div>
-            </div>
-
-            <div className="table-responsive">
-              <table className="ledger-table">
-                <thead>
-                  <tr>
-                    <th>File Path</th>
-                    <th>Owner</th>
-                    <th>Access Level</th>
-                    <th>Status</th>
-                    <th>Purpose</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td className="font-mono font-bold">AI_FILE_LOCKS.md</td>
-                    <td>Partner 1 AI</td>
-                    <td>Read-Only for Partner 2</td>
-                    <td><span className="lock-tag">LOCKED</span></td>
-                    <td>Master boundary & file ownership manifest</td>
-                  </tr>
-                  <tr>
-                    <td className="font-mono font-bold">src/App.jsx</td>
-                    <td>Partner 1 AI</td>
-                    <td>Read-Only for Partner 2</td>
-                    <td><span className="lock-tag">LOCKED</span></td>
-                    <td>Core transfer portal UI and state management</td>
-                  </tr>
-                  <tr>
-                    <td className="font-mono font-bold">src/App.css</td>
-                    <td>Partner 1 AI</td>
-                    <td>Read-Only for Partner 2</td>
-                    <td><span className="lock-tag">LOCKED</span></td>
-                    <td>Portal styling & layouts</td>
-                  </tr>
-                  <tr>
-                    <td className="font-mono font-bold">src/index.css</td>
-                    <td>Partner 1 AI</td>
-                    <td>Read-Only for Partner 2</td>
-                    <td><span className="lock-tag">LOCKED</span></td>
-                    <td>Global design theme variables</td>
-                  </tr>
-                  <tr>
-                    <td className="font-mono font-bold">src/data/mockLandData.js</td>
-                    <td>Partner 1 AI</td>
-                    <td>Read-Only for Partner 2</td>
-                    <td><span className="lock-tag">LOCKED</span></td>
-                    <td>Land parcels & transfer records mock data</td>
-                  </tr>
-                  <tr>
-                    <td className="font-mono font-bold">src/features/*</td>
-                    <td>Partner 2 (Friend + AI)</td>
-                    <td>Full Read/Write</td>
-                    <td><span className="open-tag">OPEN FOR FRIEND</span></td>
-                    <td>Dedicated folder for new friend modules & extensions</td>
-                  </tr>
                 </tbody>
               </table>
             </div>
