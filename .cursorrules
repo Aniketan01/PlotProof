@@ -1,0 +1,5 @@
+# AI Collaboration Rules
+CRITICAL: Read `AI_FILE_LOCKS.md` before making any changes.
+DO NOT modify, overwrite, delete, or refactor any files listed as LOCKED in `AI_FILE_LOCKS.md`.
+Those files belong exclusively to Partner 1's AI agent.
+Always build new features in separate files/folders (e.g. `src/features/` or `src/components/friend/`).
