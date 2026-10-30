@@ -1,5 +1,5 @@
 # 🏛️ PlotProof
-### Land Ownership Transfer & Statutory Document Verification System
+### Document Verification & Digital Title Conveyance System
 
 **PlotProof** is a transparent, digital land conveyance portal designed under the Karnataka Land Revenue & Title Registration framework. It allows buyers, sellers, and sub-registrar officers to execute title transfers, upload statutory deeds, cross-reference cadastral survey numbers, and audit immutable transaction logs.
 
@@ -32,8 +32,8 @@
 ### Installation
 ```bash
 # Clone the repository
-git clone https://github.com/Aniketan01/Land-Ownership-Transfer.git
-cd Land-Ownership-Transfer
+git clone https://github.com/Aniketan01/PlotProof.git
+cd PlotProof
 
 # Install dependencies
 npm install

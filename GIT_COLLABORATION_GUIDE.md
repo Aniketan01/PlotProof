@@ -1,30 +1,36 @@
 # Git Collaboration Guide (You + Friend)
 
-## Step 1: Push Project to GitHub (Do this once)
-1. Go to [github.com/new](https://github.com/new)
-2. Create repository name: `land-ownership-transfer` (set to Public or Private, DO NOT initialize with README).
-3. In your VS Code terminal, run:
+## Repository URL
+`https://github.com/Aniketan01/PlotProof.git`
+
+## Step 1: Rename Repository on GitHub
+1. Open: [https://github.com/Aniketan01/Land-Ownership-Transfer/settings](https://github.com/Aniketan01/Land-Ownership-Transfer/settings)
+2. Under **Repository name**, change `Land-Ownership-Transfer` to `PlotProof`.
+3. Click **Rename**.
+
+## Step 2: Update Local Remote URL
+In terminal:
 ```bash
-git remote add origin https://github.com/<YOUR-USERNAME>/land-ownership-transfer.git
+git remote set-url origin https://github.com/Aniketan01/PlotProof.git
 git push -u origin main
 ```
 
-## Step 2: Add Friend as Collaborator
-1. On GitHub repo page: click **Settings** → **Collaborators** → **Add people**.
-2. Type friend's GitHub username/email and send invite.
-3. Friend accepts invitation link received via email or at [github.com/notifications](https://github.com/notifications).
+## Step 3: Add Friend as Collaborator
+1. Open: [https://github.com/Aniketan01/PlotProof/settings/access](https://github.com/Aniketan01/PlotProof/settings/access)
+2. Click **Add people**.
+3. Type friend's GitHub username/email and invite.
 
-## Step 3: Friend Clones Repo
-On friend's computer:
+## Step 4: Friend Clones Repo
+On friend's machine:
 ```bash
-git clone https://github.com/<YOUR-USERNAME>/land-ownership-transfer.git
-cd land-ownership-transfer
+git clone https://github.com/Aniketan01/PlotProof.git
+cd PlotProof
 npm install
 npm run dev
 ```
 
-## Step 4: Golden Rule to Prevent Conflicts
-Never both work on `main` branch directly.
+## Step 5: Golden Rule to Prevent Conflicts
+Never both edit `main` branch directly.
 
 ### When Friend starts a task:
 ```bash
