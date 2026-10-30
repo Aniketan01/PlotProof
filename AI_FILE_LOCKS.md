@@ -21,6 +21,8 @@
 | `AI_FILE_LOCKS.md` | Lock registry and coordination rules | Partner 1 AI | **LOCKED** |
 | `.cursorrules` | AI behavior instruction file | Partner 1 AI | **LOCKED** |
 | `GIT_COLLABORATION_GUIDE.md` | Team Git sync instructions | Partner 1 AI | **LOCKED** |
+| `THEME_GUIDELINES.md` | Common Tailwind styling & UI standards | Partner 1 AI | **LOCKED** |
+| `vite.config.js` | Vite build & Tailwind configuration | Partner 1 AI | **LOCKED** |
 | `src/App.jsx` | Core Land Transfer portal interface & state | Partner 1 AI | **LOCKED** |
 | `src/App.css` | Styling for core portal | Partner 1 AI | **LOCKED** |
 | `src/index.css` | Global styling & design system variables | Partner 1 AI | **LOCKED** |
