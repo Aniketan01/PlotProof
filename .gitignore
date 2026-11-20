@@ -27,3 +27,7 @@ dist-ssr
 *.cjs
 *.png
 !src/assets/*.png
+
+# Documents & Data Folders
+pdf,excel/
+

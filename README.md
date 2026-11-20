@@ -46,5 +46,5 @@ Open [http://localhost:5173](http://localhost:5173) in your browser.
 
 ---
 
-## 🔒 Collaboration & AI Boundary Rules
-This project follows strict collaboration locks. Refer to [`AI_FILE_LOCKS.md`](./AI_FILE_LOCKS.md) for file ownership guidelines before making modifications.
+## 🤝 Collaboration & AI Guidelines
+All project files are unlocked for collaboration between both partners. Before modifying existing code or styles, AI agents will ask for confirmation. Refer to [`AI_FILE_LOCKS.md`](./AI_FILE_LOCKS.md) for details.

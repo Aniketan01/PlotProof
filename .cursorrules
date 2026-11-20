@@ -1,6 +1,15 @@
 # AI Collaboration Rules
-CRITICAL: Read `AI_FILE_LOCKS.md` before making any changes.
-DO NOT modify, overwrite, delete, or refactor any files listed as LOCKED in `AI_FILE_LOCKS.md`.
-Those files belong exclusively to Partner 1's AI agent.
-Always build new features in separate files/folders (e.g. `src/features/` or `src/components/friend/`).
+
+1. **Unlocked for Collaboration**:
+   All files across the repository are unlocked for collaborative editing between both partners and their AI assistants (including Partner 1's code, friend's code, styles, themes, and shared components). Refer to `AI_FILE_LOCKS.md`.
+
+2. **Confirmation Safeguard Before Modifying**:
+   When the user gives a command to modify, refactor, restyle, or delete existing code or styling:
+   - Ask the user if they are sure: e.g., "Are you sure you want to proceed with changing [file / component / style]?"
+   - If the user confirms ("yes", "proceed", "sure", or equivalent):
+     Immediately continue and apply the changes across the requested style, code (yours, friend's, or shared), and components.
+
+3. **Style & Code Harmonization**:
+   - Both collaborators are permitted to modify CSS/Tailwind classes, layouts, and logic across the entire codebase once confirmed.
+   - Maintain clean, functional code and ensure the application continues to build and run properly.
 

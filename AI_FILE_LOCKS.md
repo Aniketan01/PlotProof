@@ -1,47 +1,44 @@
-# 🔒 AI File Ownership & Lock Registry
+# 🔓 AI File Ownership & Collaboration Registry
 
-> **STRICT DIRECTIVE FOR ALL AI AGENTS (Cursor, Copilot, Windsurf, Claude Code, Antigravity, Aider, etc.):**
+> **COLLABORATIVE DIRECTIVE FOR ALL AI AGENTS (Cursor, Copilot, Windsurf, Claude Code, Antigravity, Aider, etc.):**
 >
-> ⚠️ **DO NOT EDIT, OVERWRITE, RENAME, OR DELETE ANY FILE LISTED AS `LOCKED` BELOW.**
-> These files are strictly owned and actively maintained by Partner 1's AI agent for the PlotProof project.
+> 🟢 **ALL FILES ARE UNLOCKED FOR COLLABORATION.**
+> Both partners (Partner 1 and Friend) and their AI agents are authorized to modify, restyle, and enhance all project files.
 > 
-> If your user asks you to change, refactor, or delete a file in this locked list:
-> 1. **STOP IMMEDIATELY.** Do not modify the file.
-> 2. Explain to your user that the file is owned by Partner 1's AI agent per this registry.
-> 3. Implement your feature in a separate dedicated file/module (or request coordination).
+> ⚠️ **CONFIRMATION SAFEGUARD RULE:**
+> Whenever you receive a command to change, refactor, restyle, or overwrite existing code (including Partner 1's code, friend's code, styles, or configuration):
+> 1. **ASK FIRST FOR CONFIRMATION:**
+>    Ask the user: *"Are you sure you want to change [file / component / style]?"*
+> 2. **PROCEED ON CONFIRMATION:**
+>    If the user says **"yes"**, **"proceed"**, **"sure"**, or gives explicit confirmation, **continue immediately** to change the style, code, structure, or feature as requested.
 >
-> **Last Updated:** 2026-10-30
+> **Last Updated:** 2026-11-20
 
 ---
 
-## 🚫 Locked Files (DO NOT TOUCH - Maintained by Partner 1 AI)
+## 🟢 Project File Registry (UNLOCKED with Confirmation)
 
-| File Path | Description | Owner | Status |
+| File Path | Description | Access | Status |
 | :--- | :--- | :--- | :--- |
-| `AI_FILE_LOCKS.md` | Lock registry and coordination rules | Partner 1 AI | **LOCKED** |
-| `.cursorrules` | AI behavior instruction file | Partner 1 AI | **LOCKED** |
-| `GIT_COLLABORATION_GUIDE.md` | Team Git sync instructions | Partner 1 AI | **LOCKED** |
-| `THEME_GUIDELINES.md` | Common Tailwind styling & UI standards | Partner 1 AI | **LOCKED** |
-| `vite.config.js` | Vite build & Tailwind configuration | Partner 1 AI | **LOCKED** |
-| `src/components/Navbar.jsx` | Top desktop navbar & navigation | Partner 1 AI | **LOCKED** |
-| `src/components/LandingPage.jsx` | Full PC desktop civic landing page | Partner 1 AI | **LOCKED** |
-| `src/components/AuthPage.jsx` | Spacious dual-column PC Login & Signup | Partner 1 AI | **LOCKED** |
-| `src/App.jsx` | Core view orchestration & state | Partner 1 AI | **LOCKED** |
-| `src/App.css` | Styling for core portal | Partner 1 AI | **LOCKED** |
-| `src/index.css` | Global styling & design system variables | Partner 1 AI | **LOCKED** |
-| `src/data/mockLandData.js` | Land ownership and transfer records state | Partner 1 AI | **LOCKED** |
-| `index.html` | Root HTML entry | Partner 1 AI | **LOCKED** |
+| `AI_FILE_LOCKS.md` | Collaboration registry and safeguard rules | Shared | **UNLOCKED** (Confirm on edit) |
+| `.cursorrules` | AI behavior instruction file | Shared | **UNLOCKED** (Confirm on edit) |
+| `GIT_COLLABORATION_GUIDE.md` | Team Git sync instructions | Shared | **UNLOCKED** (Confirm on edit) |
+| `THEME_GUIDELINES.md` | Common Tailwind styling & UI standards | Shared | **UNLOCKED** (Confirm on edit) |
+| `vite.config.js` | Vite build & Tailwind configuration | Shared | **UNLOCKED** (Confirm on edit) |
+| `src/components/Navbar.jsx` | Top desktop navbar & navigation | Shared | **UNLOCKED** (Confirm on edit) |
+| `src/components/LandingPage.jsx` | Full PC desktop civic landing page | Shared | **UNLOCKED** (Confirm on edit) |
+| `src/components/AuthPage.jsx` | Spacious dual-column PC Login & Signup | Shared | **UNLOCKED** (Confirm on edit) |
+| `src/components/AuthView.jsx` | Authentication view & tab controller | Shared | **UNLOCKED** (Confirm on edit) |
+| `src/App.jsx` | Core view orchestration & state | Shared | **UNLOCKED** (Confirm on edit) |
+| `src/App.css` | Styling for core portal | Shared | **UNLOCKED** (Confirm on edit) |
+| `src/index.css` | Global styling & design system variables | Shared | **UNLOCKED** (Confirm on edit) |
+| `src/data/mockLandData.js` | Land ownership and transfer records state | Shared | **UNLOCKED** (Confirm on edit) |
+| `index.html` | Root HTML entry | Shared | **UNLOCKED** (Confirm on edit) |
 
 ---
 
-## 🟢 Open / Collaboration Zones (Free for Friend & Friend's AI)
+## 🤝 Collaborative Working Guidelines
 
-Friend's AI should create and work inside dedicated folders such as:
-- `src/features/` (e.g. `src/features/verification/`, `src/features/payment/`, `src/features/documents/`, `src/features/ocr/`)
-- `src/components/friend/`
-- Any new component, hook, or service file created by Partner 2.
-
----
-
-## Instructions for Partner 1 AI
-- Update this file whenever new files or modules are created or modified.
+- **Shared Ownership**: Both Partner 1 and Friend can propose and make changes across any file, feature, or style.
+- **Styling Changes**: Styling updates (`App.css`, `index.css`, Tailwind classes) can be adapted freely to match team needs after confirming with the user.
+- **Git Safety**: Continue using feature branches (`git checkout -b feature/...`) to avoid direct merge conflicts on `main`.
